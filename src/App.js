@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList.js'
+import './components/Todo.css'
 
 
 const toDoData = [
@@ -27,7 +28,17 @@ class App extends React.Component {
   }
 
   handleCrossOut = (id)=> {
-    console.log('handleCrossOut')
+    this.setState({
+      toDoData: this.state.toDoData.map(toDoItem => {
+        if (toDoItem.id ===id) {
+          return({
+            ...toDoItem,
+            completed: !toDoItem.completed
+          });
+        }
+        return toDoItem;
+      })
+    });
   }
 
   render() {

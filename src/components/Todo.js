@@ -6,7 +6,7 @@ const Todo = props => {
         props.handleCrossOut(props.toDoItem.id);
     }
     return (
-        <div onClick={handleClick}>
+        <div onClick={handleClick} className={`toDoItem${props.toDoItem.completed ? ' completed' : ''}`}>
             <p>{props.toDoItem.task}</p>
         </div>
     );
