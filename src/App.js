@@ -42,12 +42,24 @@ class App extends React.Component {
     });
   }
 
-  handleAddToDoItem = (e) => {
-    console.log(e)
+  handleAddToDoItem = (newToDo) => {
+    const newToDoItem = {
+      task: newToDo,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      toDoData: [...this.state.toDoData, newToDoItem]
+    })
   }
 
   handleClear = () => {
-    console.log('Pending Code for Clearing Items')
+    this.setState({
+      toDoData: this.state.toDoData.filter(toDoItem =>{
+        return(toDoItem.completed === false);
+      })
+    })
   }
 
   render() {
