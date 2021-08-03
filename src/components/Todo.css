@@ -1,0 +1,3 @@
+.toDoItem.completed {
+    text-decoration: line-through;
+  }
