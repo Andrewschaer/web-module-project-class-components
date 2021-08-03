@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList.js'
+import TodoForm from './components/TodoForm.js'
 import './components/Todo.css'
 
 
@@ -41,11 +42,20 @@ class App extends React.Component {
     });
   }
 
+  handleAddToDoItem = (e) => {
+    console.log(e)
+  }
+
+  handleClear = () => {
+    console.log('Pending Code for Clearing Items')
+  }
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList toDoData={this.state.toDoData} handleCrossOut={this.handleCrossOut}/>
+        <TodoForm handleAddToDoItem={this.handleAddToDoItem} handleClear={this.handleClear}/>
       </div>
     );
   }
